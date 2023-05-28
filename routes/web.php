@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PencatatanATKController;
 use App\Http\Controllers\SuratMasukController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -22,4 +23,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+
 Route::resource('surats', SuratMasukController::class); 
+Route::resource('atks', PencatatanATKController::class); 

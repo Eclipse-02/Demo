@@ -56,8 +56,8 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
+                <li class="nav-item {{ Request::is('atks', 'atks/create', 'atks/{$atk->id}', 'atks/{$atk->id}/edit') ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ Request::is('atks', 'atks/create', 'atks/{$atk->id}', 'atks/{$atk->id}/edit') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Pencatatan ATK
@@ -66,13 +66,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="./index.html" class="nav-link">
+                            <a href="{{ route('atks.index') }}" class="nav-link {{ Request::is('atks') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Index</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="./index2.html" class="nav-link">
+                            <a href="{{ route('atks.create') }}" class="nav-link {{ Request::is('atks/create') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Create</p>
                             </a>
