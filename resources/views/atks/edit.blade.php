@@ -106,7 +106,7 @@
         });
         jumlah.addEventListener('keyup', function(e)
         {
-            jumlah.value = validator(this.value);
+            jumlah.value = formatRupiah(this.value);
         });
         function formatRupiah(angka, prefix)
         {

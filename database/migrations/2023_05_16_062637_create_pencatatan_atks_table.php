@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string("nama_barang");
             $table->string("satuan");
             $table->string("harga_barang");
-            $table->integer("jumlah");
+            $table->string("jumlah");
             $table->string("sumber_dana");
             $table->string("pj");
             $table->timestamps();

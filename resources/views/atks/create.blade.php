@@ -105,7 +105,7 @@
         });
         jumlah.addEventListener('keyup', function(e)
         {
-            jumlah.value = validator(this.value);
+            jumlah.value = formatRupiah(this.value);
         });
         function formatRupiah(angka, prefix)
         {
@@ -122,10 +122,6 @@
             
             rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
             return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
-        }
-        function validator(text) {
-            var number_string = text.replace(/[^,\d]/g, '').toString();
-            return number_string;
         }
     </script>
 @endpush

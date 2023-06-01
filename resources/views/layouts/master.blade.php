@@ -54,8 +54,37 @@
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Dashboard v1</li>
+                                @if (Request::is('dashboard'))
+                                    <li class="breadcrumb-item active">Dashboard</li>
+                                @elseif (Request::is('surats', 'surats/create', 'surats/*', 'surats/*/edit'))
+                                    @if (Request::is('surats/create'))
+                                        <li class="breadcrumb-item active">Create</li>
+                                        <li class="breadcrumb-item"><a href="{{ route('surats.index') }}">Surat Masuk</a></li>
+                                    @elseif (Request::is('surats/*/edit'))
+                                        <li class="breadcrumb-item active">Edit</li>
+                                        <li class="breadcrumb-item"><a href="{{ route('surats.index') }}">Surat Masuk</a></li>
+                                    @elseif (Request::is('surats/*'))
+                                        <li class="breadcrumb-item active">View</li>
+                                        <li class="breadcrumb-item"><a href="{{ route('surats.index') }}">Surat Masuk</a></li>
+                                    @else
+                                        <li class="breadcrumb-item active">Surat Masuk</li>
+                                    @endif
+                                    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                                @else
+                                    @if (Request::is('atks/create'))
+                                        <li class="breadcrumb-item active">Create</li>
+                                        <li class="breadcrumb-item"><a href="{{ route('atks.index') }}">Pencatatan ATK</a></li>
+                                    @elseif (Request::is('atks/*/edit'))
+                                        <li class="breadcrumb-item active">Edit</li>
+                                        <li class="breadcrumb-item"><a href="{{ route('atks.index') }}">Pencatatan ATK</a></li>
+                                    @elseif (Request::is('atks/*'))
+                                        <li class="breadcrumb-item active">View</li>
+                                        <li class="breadcrumb-item"><a href="{{ route('atks.index') }}">Pencatatan ATK</a></li>
+                                    @else
+                                        <li class="breadcrumb-item active">Pencatatan ATK</li>
+                                    @endif
+                                    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                                @endif
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->

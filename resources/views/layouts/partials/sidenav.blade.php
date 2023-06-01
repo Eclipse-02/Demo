@@ -33,9 +33,13 @@
                     </a>
                 </li>
                 <li class="nav-header">MODULES</li>
-                <li class="nav-item {{ Request::is('surats', 'surats/create', 'surats/{$surat->id}', 'surats/{$surat->id}/edit') ? 'menu-open' : '' }}">
-                    <a href="#" class="nav-link {{ Request::is('surats', 'surats/create', 'surats/{$surat->id}', 'surats/{$surat->id}/edit') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                <li class="nav-item {{ Request::is('surats', 'surats/create', 'surats/*', 'surats/*/edit') ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ Request::is('surats', 'surats/create', 'surats/*', 'surats/*/edit') ? 'active' : '' }}">
+                        @if (Request::is('surats', 'surats/create', 'surats/*', 'surats/*/edit'))
+                            <i class="nav-icon fas fa-envelope-open-text"></i>
+                        @else
+                            <i class="nav-icon fas fa-envelope"></i>
+                        @endif
                         <p>
                             Arsip Surat
                             <i class="right fas fa-angle-left"></i>
@@ -56,9 +60,13 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item {{ Request::is('atks', 'atks/create', 'atks/{$atk->id}', 'atks/{$atk->id}/edit') ? 'menu-open' : '' }}">
-                    <a href="#" class="nav-link {{ Request::is('atks', 'atks/create', 'atks/{$atk->id}', 'atks/{$atk->id}/edit') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                <li class="nav-item {{ Request::is('atks', 'atks/create', 'atks/*', 'atks/*/edit') ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ Request::is('atks', 'atks/create', 'atks/*', 'atks/*/edit') ? 'active' : '' }}">
+                        @if (Request::is('atks', 'atks/create', 'atks/*', 'atks/*/edit'))
+                            <i class="nav-icon fas fa-book-open"></i>
+                        @else
+                            <i class="nav-icon fas fa-book"></i>
+                        @endif
                         <p>
                             Pencatatan ATK
                             <i class="right fas fa-angle-left"></i>
