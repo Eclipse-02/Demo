@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PencatatanATK;
+use App\Models\SuratMasuk;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $surats = SuratMasuk::all()->count();
+        $atks = PencatatanATK::all()->count();
+
+        return view('home', compact('surats', 'atks'));
     }
 }
