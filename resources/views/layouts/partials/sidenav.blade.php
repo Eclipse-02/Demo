@@ -10,14 +10,31 @@
     <!-- Sidebar -->
     <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <div class="image">
-                <img src="{{ asset('admin/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
-            </div>
-            <div class="info">
-                <a href="#" class="d-block">{{ auth()->user()->name }}</a>
-            </div>
-        </div>
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+            data-accordion="false">
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <p>
+                        <img src="{{ asset('admin/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" style="width: 20%" alt="User Image">
+                        <span class="ms-2">{{ auth()->user()->name }}</span>
+                        <i class="right fas fa-angle-left"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{ route('logout') }}" class="nav-link"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <p>Logout</p>
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </li>
+                </ul>
+            </li>
+        </ul>
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
