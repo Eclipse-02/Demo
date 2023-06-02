@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\SuratMasuk;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SuratMasukController extends Controller
 {
@@ -120,5 +121,17 @@ class SuratMasukController extends Controller
         $surat->delete();
 
         return redirect()->route('surats.index');
+    }
+
+    public function search(Request $request)
+    {
+        $surats = SuratMasuk::where('pengirim', 'LIKE', '%'. $request->data .'%')
+                    ->orWhere('tanggal_surat', 'LIKE', '%'. $request->data .'%')
+                    ->orWhere('no_surat', 'LIKE', '%'. $request->data .'%')
+                    ->orWhere('perihal', 'LIKE', '%'. $request->data .'%')
+                    ->latest()->paginate(5);
+
+        return view('surats.index', compact('surats'))
+                ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 }

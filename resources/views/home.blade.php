@@ -8,7 +8,7 @@
 <!-- Small boxes (Stat box) -->
 <div class="row">
     <div class="col-12 mb-3">
-        <h4 class="mb-2"><span id="time"></span><span class="bg-primary text-white px-2 py-1 rounded">{{ auth()->user()->name }}</span></h4>
+        <h4 class="mb-4"><span id="time"></span><span class="bg-primary text-white px-2 py-1 rounded">{{ auth()->user()->name }}</span></h4>
         <h6>Please select a <span class="bg-primary text-white px-2 py-1 rounded">Module</span> below or beside the content</h6>
     </div>
     <div class="col-lg-6 col-12">

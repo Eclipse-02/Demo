@@ -33,9 +33,9 @@
                     </a>
                 </li>
                 <li class="nav-header">MODULES</li>
-                <li class="nav-item {{ Request::is('surats', 'surats/create', 'surats/*', 'surats/*/edit') ? 'menu-open' : '' }}">
-                    <a href="#" class="nav-link {{ Request::is('surats', 'surats/create', 'surats/*', 'surats/*/edit') ? 'active' : '' }}">
-                        @if (Request::is('surats', 'surats/create', 'surats/*', 'surats/*/edit'))
+                <li class="nav-item {{ Request::is('surats', 'surats/create', 'surats/*', 'surats/*/edit', 'search/surats*') ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ Request::is('surats', 'surats/create', 'surats/*', 'surats/*/edit', 'search/surats*') ? 'active' : '' }}">
+                        @if (Request::is('surats', 'surats/create', 'surats/*', 'surats/*/edit', 'search/surats*'))
                             <i class="nav-icon fas fa-envelope-open-text"></i>
                         @else
                             <i class="nav-icon fas fa-envelope"></i>
@@ -47,7 +47,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('surats.index') }}" class="nav-link {{ Request::is('surats') ? 'active' : '' }}">
+                            <a href="{{ route('surats.index') }}" class="nav-link {{ Request::is('surats', 'search/surats*') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Index</p>
                             </a>
@@ -60,9 +60,9 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item {{ Request::is('atks', 'atks/create', 'atks/*', 'atks/*/edit') ? 'menu-open' : '' }}">
-                    <a href="#" class="nav-link {{ Request::is('atks', 'atks/create', 'atks/*', 'atks/*/edit') ? 'active' : '' }}">
-                        @if (Request::is('atks', 'atks/create', 'atks/*', 'atks/*/edit'))
+                <li class="nav-item {{ Request::is('atks', 'atks/create', 'atks/*', 'atks/*/edit', 'search/atks*') ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ Request::is('atks', 'atks/create', 'atks/*', 'atks/*/edit', 'search/atks*') ? 'active' : '' }}">
+                        @if (Request::is('atks', 'atks/create', 'atks/*', 'atks/*/edit', 'search/atks*'))
                             <i class="nav-icon fas fa-book-open"></i>
                         @else
                             <i class="nav-icon fas fa-book"></i>
@@ -74,7 +74,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('atks.index') }}" class="nav-link {{ Request::is('atks') ? 'active' : '' }}">
+                            <a href="{{ route('atks.index') }}" class="nav-link {{ Request::is('atks', 'search/atks*') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Index</p>
                             </a>

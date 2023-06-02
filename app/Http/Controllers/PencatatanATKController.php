@@ -103,4 +103,15 @@ class PencatatanATKController extends Controller
 
         return redirect()->route('atks.index');
     }
+
+    public function search(Request $request)
+    {
+        $atks = PencatatanATK::where('nama_barang', 'LIKE', '%'. $request->data .'%')
+                    ->orWhere('sumber_dana', 'LIKE', '%'. $request->data .'%')
+                    ->orWhere('pj', 'LIKE', '%'. $request->data .'%')
+                    ->latest()->paginate(5);
+
+        return view('atks.index', compact('atks'))
+                ->with('i', (request()->input('page', 1) - 1) * 5);
+    }
 }

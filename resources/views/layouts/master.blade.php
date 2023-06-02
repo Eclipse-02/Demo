@@ -56,7 +56,7 @@
                             <ol class="breadcrumb float-sm-right">
                                 @if (Request::is('dashboard'))
                                     <li class="breadcrumb-item active">Dashboard</li>
-                                @elseif (Request::is('surats', 'surats/create', 'surats/*', 'surats/*/edit'))
+                                @elseif (Request::is('surats', 'surats/create', 'surats/*', 'surats/*/edit', 'search/surats*'))
                                     @if (Request::is('surats/create'))
                                         <li class="breadcrumb-item active">Create</li>
                                         <li class="breadcrumb-item"><a href="{{ route('surats.index') }}">Surat Masuk</a></li>

@@ -24,5 +24,7 @@ Auth::routes();
 
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 
-Route::resource('surats', SuratMasukController::class); 
+Route::resource('surats', SuratMasukController::class);
 Route::resource('atks', PencatatanATKController::class); 
+Route::get('search/surats', [SuratMasukController::class, 'search'])->name('surats.search');
+Route::get('search/atks', [PencatatanATKController::class, 'search'])->name('atks.search');
