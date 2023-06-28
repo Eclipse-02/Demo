@@ -15,13 +15,18 @@
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>Nama Barang</strong>
-                            <input type="text" name="nama_barang" class="form-control" placeholder="Nama Barang" value="{{ $atk->nama_barang }}">
+                            <input type="text" name="nama_barang" class="form-control @error('nama_barang') is-invalid @enderror" placeholder="Nama Barang" value="{{ $atk->nama_barang }}">
+                            @error('nama_barang')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>Satuan</strong>
-                            <select class="form-control" name="satuan">
+                            <select class="form-control @error('satuan') is-invalid @enderror" name="satuan">
                                 <option value="{{ $atk->satuan }}">{{ $atk->satuan }}</option>
                                 <option value="Unit">Unit</option>
                                 <option value="Buah">Buah</option>
@@ -58,6 +63,11 @@
                                 <option value="Cc">Cc</option>
                                 <option value="Liter">Liter</option>
                             </select>
+                            @error('satuan')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -65,26 +75,46 @@
                             <strong>Harga Barang</strong>
                             <div class="input-group flex-nowrap">
                                 <span class="input-group-text" id="harga">Rp.</span>
-                                <input type="text" name="harga_barang" id="harga_barang" class="form-control" aria-describedby="harga" value="{{ $atk->harga_barang }}">
+                                <input type="text" name="harga_barang" id="harga_barang" class="form-control @error('harga_barang') is-invalid @enderror" aria-describedby="harga" value="{{ $atk->harga_barang }}">
                             </div>
+                            @error('harga_barang')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>Jumlah</strong>
-                            <input type="text" name="jumlah" id="jumlah" class="form-control" placeholder="Jumlah" value="{{ $atk->jumlah }}">
+                            <input type="text" name="jumlah" id="jumlah" class="form-control @error('jumlah') is-invalid @enderror" placeholder="Jumlah" value="{{ $atk->jumlah }}">
+                            @error('jumlah')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>Sumber Dana</strong>
-                            <input type="text" name="sumber_dana" placeholder="Sumber Dana" class="form-control" value="{{ $atk->sumber_dana }}">
+                            <input type="text" name="sumber_dana" placeholder="Sumber Dana" class="form-control @error('sumbar_dana') is-invalid @enderror" value="{{ $atk->sumber_dana }}">
+                            @error('sumbar_dana')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>Penanggung Jawab</strong>
-                            <input type="text" name="pj" class="form-control" placeholder="Penanggung Jawab" value="{{ $atk->pj }}">
+                            <input type="text" name="pj" class="form-control @error('pj') is-invalid @enderror" placeholder="Penanggung Jawab" value="{{ $atk->pj }}">
+                            @error('pj')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">

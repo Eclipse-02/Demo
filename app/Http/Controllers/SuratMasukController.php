@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\SuratMasuk;
+use App\Exports\SuratsExport;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class SuratMasukController extends Controller
 {
@@ -14,9 +15,19 @@ class SuratMasukController extends Controller
     public function index()
     {
         $surats = SuratMasuk::latest()->paginate(5);
-        
+
         return view('surats.index', compact('surats'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
+    }
+
+    public function exportExcel() 
+    {
+        return Excel::download(new SuratsExport, 'Laporan Surat.xlsx');
+    }
+
+    public function exportPDF() 
+    {
+        return Excel::download(new SuratsExport, 'Laporan Surat.pdf', \Maatwebsite\Excel\Excel::DOMPDF);
     }
 
     /**
@@ -58,6 +69,8 @@ class SuratMasukController extends Controller
             'perihal' => $request->perihal,
             'isi_surat' => $request->isi_surat,
         ]);
+
+        toast('Data Successfully Created!', 'success');
 
         return redirect()->route('surats.index');
     }
@@ -110,6 +123,8 @@ class SuratMasukController extends Controller
             'isi_surat' => $request->isi_surat,
         ]);
 
+        toast('Data Successfully Modified!', 'success');
+
         return redirect()->route('surats.index');
     }
 
@@ -119,6 +134,8 @@ class SuratMasukController extends Controller
     public function destroy(SuratMasuk $surat)
     {
         $surat->delete();
+
+        toast('Data Successfully Deleted!', 'success');
 
         return redirect()->route('surats.index');
     }

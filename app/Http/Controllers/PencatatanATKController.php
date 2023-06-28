@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\PencatatanATK;
+use App\Exports\ATKsExport;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PencatatanATKController extends Controller
 {
@@ -13,9 +15,19 @@ class PencatatanATKController extends Controller
     public function index()
     {
         $atks = PencatatanATK::latest()->paginate(5);
-        
+
         return view('atks.index', compact('atks'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
+    }
+
+    public function exportExcel() 
+    {
+        return Excel::download(new ATKsExport, 'Laporan ATK.xlsx');
+    }
+
+    public function exportPDF() 
+    {
+        return Excel::download(new ATKsExport, 'Laporan ATK.pdf', \Maatwebsite\Excel\Excel::DOMPDF);
     }
 
     /**
@@ -48,6 +60,8 @@ class PencatatanATKController extends Controller
             'sumber_dana' => $request->sumber_dana,
             'pj' => $request->pj,
         ]);
+
+        toast('Data Successfully Created!', 'success');
 
         return redirect()->route('atks.index');
     }
@@ -91,6 +105,8 @@ class PencatatanATKController extends Controller
             'pj' => $request->pj,
         ]);
 
+        toast('Data Successfully Modified!', 'success');
+
         return redirect()->route('atks.index');
     }
 
@@ -100,6 +116,8 @@ class PencatatanATKController extends Controller
     public function destroy(PencatatanATK $atk)
     {
         $atk->delete();
+
+        toast('Data Successfully Deleted!', 'success');
 
         return redirect()->route('atks.index');
     }

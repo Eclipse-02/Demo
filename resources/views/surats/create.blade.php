@@ -14,20 +14,30 @@
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>Pengirim</strong>
-                            <input type="text" name="pengirim" class="form-control" placeholder="Pengirim">
+                            <input type="text" name="pengirim" class="form-control @error('pengirim') is-invalid @enderror" placeholder="Pengirim">
+                            @error('pengirim')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>Tanggal Surat</strong>
-                            <input type="date" name="tanggal_surat" class="form-control" placeholder="Tanggal Surat">
+                            <input type="date" name="tanggal_surat" class="form-control @error('tanggal_surat') is-invalid @enderror" placeholder="Tanggal Surat">
+                            @error('tanggal_surat')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group d-flex flex-column">
                             <strong>No Surat</strong>
                             <div class="d-flex flex-row">
-                                <select class="form-control text-center" style="flex: 0 0 18.3%; max-width: 18.3%;" name="kode_surat">
+                                <select class="form-control @error('kode_surat') is-invalid @enderror text-center" style="flex: 0 0 18.3%; max-width: 18.3%;" name="kode_surat">
                                     <option value="">-- Kode Surat --</option>
                                     <option value="01">01 (SK)</option>
                                     <option value="02">02 (SU)</option>
@@ -46,11 +56,11 @@
                                     <option value="15">15 (SPeng)</option>
                                 </select>
                                 <span class="d-flex align-items-center text-center mx-2">/</span>
-                                <input type="unsigned-zerofill" minlength="3" maxlength="3" name="urut_surat" class="form-control text-center" style="flex: 0 0 18.3%; max-width: 18.3%;" placeholder="Nomor Urut">
+                                <input type="unsigned-zerofill" minlength="3" maxlength="3" name="urut_surat" class="form-control @error('urut_surat') is-invalid @enderror text-center" style="flex: 0 0 18.3%; max-width: 18.3%;" placeholder="Nomor Urut">
                                 <span class="d-flex align-items-center text-center mx-2">/</span>
-                                <input type="text" name="lembaga_surat" class="form-control text-center" style="flex: 0 0 18.3%; max-width: 18.3%;" placeholder="Nama Lembaga">
+                                <input type="text" name="lembaga_surat" class="form-control @error('lembaga_surat') is-invalid @enderror text-center" style="flex: 0 0 18.3%; max-width: 18.3%;" placeholder="Nama Lembaga">
                                 <span class="d-flex align-items-center text-center mx-2">/</span>
-                                <select class="form-control text-center" style="flex: 0 0 18.3%; max-width: 18.3%;" name="bulan_surat">
+                                <select class="form-control @error('bulan_surat') is-invalid @enderror text-center" style="flex: 0 0 18.3%; max-width: 18.3%;" name="bulan_surat">
                                     <option value="">-- Bulan Surat --</option>
                                     <option value="I">I</option>
                                     <option value="II">II</option>
@@ -66,20 +76,55 @@
                                     <option value="XII">XII</option>
                                 </select>
                                 <span class="d-flex align-items-center text-center mx-2">/</span>
-                                <input type="number" minlength="4" maxlength="4" name="tahun_surat" class="form-control text-center" style="flex: 0 0 18.3%; max-width: 18.3%;" placeholder="Tahun Surat">
+                                <input type="number" minlength="4" maxlength="4" name="tahun_surat" class="form-control @error('tahun_surat') is-invalid @enderror text-center" style="flex: 0 0 18.3%; max-width: 18.3%;" placeholder="Tahun Surat">
+                                @error('kode_surat')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                                @error('urut_surat')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                                @error('lembaga_surat')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                                @error('bulan_surat')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                                @error('tahun_surat')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>Perihal</strong>
-                            <input type="text" name="perihal" class="form-control" placeholder="Perihal">
+                            <input type="text" name="perihal" class="form-control @error('perihal') is-invalid @enderror" placeholder="Perihal">
+                            @error('perihal')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>Isi Surat</strong>
-                            <textarea name="isi_surat" cols="30" rows="10" placeholder="Isi Surat" class="form-control"></textarea>
+                            <textarea name="isi_surat" cols="30" rows="10" placeholder="Isi Surat" class="form-control @error('isi_surat') is-invalid @enderror"></textarea>
+                            @error('isi_surat')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
