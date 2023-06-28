@@ -20,10 +20,6 @@ use Illuminate\Support\Facades\Route;
 // Login Route
 Route::get('/', [LoginController::class, 'showLoginForm'])->name('login');
 
-Route::get('/test', function () {
-    return view('test');
-});
-
 // Laravel/UI Package Route
 Auth::routes([
     'register' => false
